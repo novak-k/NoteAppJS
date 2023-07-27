@@ -56,29 +56,25 @@ function createNoteRow(note) {
   const editIcon = document.createElement('i');
   editIcon.className = 'fa fa-pencil';
   editIcon.addEventListener('click', () => {
-    editNote(note);
-    console.log('Edit clicked for note:', note);
+    editNote(note, row);
   });
 
   const archiveIcon = document.createElement('i');
   archiveIcon.className = 'fa fa-archive';
   archiveIcon.addEventListener('click', () => {
     toggleArchive(note);
-    console.log('Archive clicked for note:', note);
   });
 
   const unarchiveIcon = document.createElement('i');
   unarchiveIcon.className = 'fa fa-undo';
   unarchiveIcon.addEventListener('click', () => {
     toggleArchive(note);
-    console.log('Unarchive clicked for note:', note);
   });
 
   const deleteIcon = document.createElement('i');
   deleteIcon.className = 'fa fa-trash';
   deleteIcon.addEventListener('click', () => {
     removeNote(note);
-    console.log('Archive clicked for note:', note);
   });
 
   if (note.archived) {

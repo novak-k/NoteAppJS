@@ -6,26 +6,42 @@
     <title>Notes App</title>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script>dayjs().format()</script>
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">    
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Notes App JS</h1>
     <div>
       <table id="notesTable"></table>
-      <div class="addNoteField">
-          <h3>Add a new note:</h3>
-          <textarea id="noteName" placeholder="Enter your note title here..."></textarea>
-          <textarea id="noteContent" placeholder="Enter your note here..."></textarea>
-          <select id="noteCategory">
-              <option value="Task">Task</option>
-              <option value="Random Thought">Random Thought</option>
-              <option value="Idea">Idea</option>
-          </select>
-          <button id="addNoteBtn">Add Note</button>
+      <button id="addNoteBtn">Add Note</button>
+      <div class="modal_add" id="note_modal_add" style="display:none">
+        <div class="addNoteField">
+            <h3>Add a new note:</h3>
+            <textarea id="noteName" placeholder="Enter your note title here..."></textarea>
+            <textarea id="noteContent" placeholder="Enter your note here..."></textarea>
+            <select id="noteCategory">
+                <option value="Task">Task</option>
+                <option value="Random Thought">Random Thought</option>
+                <option value="Idea">Idea</option>
+            </select>
+            <button id="saveNoteBtn">Save Note</button>
+        </div>
       </div>
   </div>
   <div>
     <table id="summaryTable"></table>
+  </div>
+
+  <div class="modal_edit" id="note_modal_edit" style="display:none">
+    <div>
+      <form id="edit_form">
+        <input type="text" id="ip_name" name="name"/>
+        <input type="text" id="ip_content" name="content"/>
+        <input type="text" id="ip_category" name="category"/>
+        <input type="hidden" id="ip_note_id" name="id"/>
+        <button type="button" id="edit_save_button">Save</button>
+      </form>
+    </div>
   </div>
     <script type="module" src="app.js"></script>
 </body>
