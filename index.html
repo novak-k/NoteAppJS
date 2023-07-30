@@ -11,9 +11,10 @@
 </head>
 <body>
     <h1>Notes App JS</h1>
-    <div>
+    <div class="tableWrapper">
       <table id="notesTable"></table>
       <button id="addNoteBtn">Add Note</button>
+
       <div class="modal_add" id="note_modal_add" style="display:none">
         <div class="addNoteField">
             <h3>Add a new note:</h3>
@@ -28,20 +29,20 @@
         </div>
       </div>
   </div>
-  <div>
-    <table id="summaryTable"></table>
-  </div>
+  <div class="tableWrapper">
 
-  <div class="modal_edit" id="note_modal_edit" style="display:none">
-    <div>
-      <form id="edit_form">
-        <input type="text" id="ip_name" name="name"/>
-        <input type="text" id="ip_content" name="content"/>
-        <input type="text" id="ip_category" name="category"/>
-        <input type="hidden" id="ip_note_id" name="id"/>
-        <button type="button" id="edit_save_button">Save</button>
-      </form>
+    <div class="modal_edit" id="note_modal_edit">
+      <div>
+        <form id="edit_form">
+          <input type="text" id="ip_name" name="name"/>
+          <input type="text" id="ip_content" name="content"/>
+          <input type="text" id="ip_category" name="category"/>
+          <input type="hidden" id="ip_note_id" name="id"/>
+          <button type="button" id="edit_save_button">Save</button>
+        </form>
+      </div>
     </div>
+      <table id="summaryTable"></table>
   </div>
     <script type="module" src="app.js"></script>
 </body>

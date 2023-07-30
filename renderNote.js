@@ -1,4 +1,4 @@
-import { editNote } from './app.js';
+import { editNote } from './editNote.js';
 import { toggleArchive } from './app.js';
 import { removeNote } from './app.js';
 
@@ -35,21 +35,37 @@ function createNoteHeader() {
 
 function createNoteRow(note) {
   const row = document.createElement('tr');
+  row.setAttribute('data-id', note.id)
 
   const nameCell = document.createElement('td');
   nameCell.textContent = note.name;
+  if (note.archived) {
+    nameCell.style.textDecoration = 'line-through';
+  };
 
   const dateCell = document.createElement('td');
   dateCell.textContent = note.createdAt;
+  if (note.archived) {
+    dateCell.style.textDecoration = 'line-through';
+  };
 
   const contentCell = document.createElement('td');
   contentCell.textContent = note.content;
+  if (note.archived) {
+    contentCell.style.textDecoration = 'line-through';
+  };
 
   const categoryCell = document.createElement('td');
   categoryCell.textContent = note.category;
+  if (note.archived) {
+    categoryCell.style.textDecoration = 'line-through';
+  };
 
   const datesCell = document.createElement('td');
   datesCell.textContent = note.dates?.join(', ');
+  if (note.archived) {
+    datesCell.style.textDecoration = 'line-through';
+  };
 
   const iconCell = document.createElement('td');
 

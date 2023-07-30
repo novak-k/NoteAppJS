@@ -1,3 +1,58 @@
 .modal {
   display: none;
 }
+
+h1{
+  color: grey;
+}
+
+.tableWrapper, .edit_form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  min-width: 800px;
+  max-width: 1200px;
+}
+
+th{
+  background-color: darkgray;
+  color: aliceblue;
+  border-radius: 5%;
+}
+
+td{
+  line-height: 120%;
+  text-align: center;
+  background-color: rgb(188, 205, 211);
+  color: grey;
+}
+
+.addNoteField{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+#addNoteBtn, #saveNoteBtn{
+  width: max-content;
+  align-self: flex-end;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+i{
+  margin: 3px;
+  cursor: pointer;
+}
+
+.modal_edit{
+  display: none;
+  margin: 0 auto;
+}
+
+#edit_form {
+  min-width: fit-content;
+  max-width: 1200px;
+  margin: 20px 0;
+}
