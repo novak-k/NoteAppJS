@@ -18,8 +18,6 @@ export function renderTables() {
 }
 
 export function toggleArchive(note) {
-  const action = note.archived ? 'unarchive' : 'archive';
-
   const rows = document.querySelectorAll('tr')
 
   for (let el of rows) {

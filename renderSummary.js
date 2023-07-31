@@ -1,18 +1,19 @@
+function createCell(text, isHeader = false) {
+  const cell = isHeader ? document.createElement('th') : document.createElement('td');
+  cell.textContent = text;
+
+  return cell;
+}
+
 function createSummaryHeader() {
   const rowHeader = document.createElement('tr');
 
-  const categoryCell = document.createElement('th');
-  categoryCell.textContent = 'Category';
+  const headers = ['Category', 'Active', 'Archived'];
 
-  const activeCell = document.createElement('th');
-  activeCell.textContent = 'Active';
-
-  const archivedCell = document.createElement('th');
-  archivedCell.textContent = 'Archived';
-
-  rowHeader.appendChild(categoryCell);
-  rowHeader.appendChild(activeCell);
-  rowHeader.appendChild(archivedCell);
+  headers.forEach((headerText) => {
+    const headerCell = createCell(headerText, true);
+    rowHeader.appendChild(headerCell);
+  });
 
   return rowHeader;
 }
@@ -22,19 +23,16 @@ function filterNotesByCategory(notes, category) {
 }
 
 function createSummaryRow(category, notes) {
-  const activeNotes = filterNotesByCategory(notes, category).filter(note => !note.archived);
-  const archivedNotes = filterNotesByCategory(notes, category).filter(note => note.archived);
+  const categoryNotes = filterNotesByCategory(notes, category);
+
+  const activeNotes = categoryNotes.filter(note => !note.archived);
+  const archivedNotes = categoryNotes.filter(note => note.archived);
 
   const row = document.createElement('tr');
 
-  const categoryCell = document.createElement('td');
-  categoryCell.textContent = category;
-
-  const activeCell = document.createElement('td');
-  activeCell.textContent = activeNotes.length;
-
-  const archivedCell = document.createElement('td');
-  archivedCell.textContent = archivedNotes.length;
+  const categoryCell = createCell(category);
+  const activeCell = createCell(activeNotes.length);
+  const archivedCell = createCell(archivedNotes.length);
 
   row.appendChild(categoryCell);
   row.appendChild(activeCell);
